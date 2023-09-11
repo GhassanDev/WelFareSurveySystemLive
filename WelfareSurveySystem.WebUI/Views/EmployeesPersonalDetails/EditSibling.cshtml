@@ -1,0 +1,83 @@
+﻿@model WelfareSurveySystem.Domain.Entities.Sibling
+
+@{
+    ViewData["Title"] = "EditSibling";
+}
+
+<h1>EditSibling</h1>
+
+<h4>Sibling</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditSibling">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SiblingId" class="control-label"></label>
+                <input asp-for="SiblingId" class="form-control" />
+                <span asp-validation-for="SiblingId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrotherOrStepBrother" class="control-label"></label>
+                <input asp-for="BrotherOrStepBrother" class="form-control" />
+                <span asp-validation-for="BrotherOrStepBrother" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeID" class="control-label"></label>
+                <input asp-for="EmployeeID" class="form-control" />
+                <span asp-validation-for="EmployeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <input asp-for="PersonId" class="form-control" />
+                <span asp-validation-for="PersonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCard" class="control-label"></label>
+                <input asp-for="IdCard" class="form-control" />
+                <span asp-validation-for="IdCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDay" class="control-label"></label>
+                <input asp-for="BirthDay" class="form-control" />
+                <span asp-validation-for="BirthDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthStatues" class="control-label"></label>
+                <input asp-for="HealthStatues" class="form-control" />
+                <span asp-validation-for="HealthStatues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobName" class="control-label"></label>
+                <input asp-for="JobName" class="form-control" />
+                <span asp-validation-for="JobName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <input asp-for="MaritalStatus" class="form-control" />
+                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsEligibleToSharePensionAmount" /> @Html.DisplayNameFor(model => model.IsEligibleToSharePensionAmount)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

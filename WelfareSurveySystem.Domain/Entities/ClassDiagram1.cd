@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WelfareSurveySystem.Domain.Entities.DeceasedForm">
+    <Position X="4" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQABAAAAAgAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\DeceasedForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Employee" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <AssociationLine Name="Childrens" Type="WelfareSurveySystem.Domain.Entities.Children" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.938" Y="6.062" />
+        <Point X="8.938" Y="7.721" />
+        <Point X="11.5" Y="7.721" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Parents" Type="WelfareSurveySystem.Domain.Entities.Parent" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.938" Y="6.062" />
+        <Point X="8.938" Y="9.596" />
+        <Point X="11.5" Y="9.596" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAJAAQAAAAAAAJAgAAAEAAAAAAEGSCACAAAAAAAIEAA=</HashCode>
+      <FileName>Entities\Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Childrens" />
+      <Property Name="Siblings" />
+      <Property Name="Parents" />
+      <Property Name="Spouses" />
+      <Property Name="RealEstates" />
+      <Property Name="Documents" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Document">
+    <Position X="4.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Entities\Document.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Children" Collapsed="true">
+    <Position X="11.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Entities\Children.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Parent" Collapsed="true">
+    <Position X="11.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Entities\Parent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.RealEstate" Collapsed="true">
+    <Position X="7.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAABAAAACAAAAAIAAAAAAAAAAAAAAAAAAgAIAAAAAA=</HashCode>
+      <FileName>Entities\RealEstate.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RealEstateType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Sibling" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Entities\Sibling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Spouse" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Spouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Person" Collapsed="true">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAABAAAAAAEAAAAAAQAAAAIAABCAAAAAAAAEAA=</HashCode>
+      <FileName>Entities\Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.WelfareForm">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\WelfareForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.RealEstateType" Collapsed="true">
+    <Position X="10.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\RealEstateType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.Address" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAgAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.TaskRequest">
+    <Position X="1.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAEAAAgAAAAAAAAACAgAAAAAAAgAAgA=</HashCode>
+      <FileName>Entities\TaskRequest.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="WelfareForm" />
+      <Property Name="TaskStatus" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Attachments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.XForm" Collapsed="true">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\XForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WelfareSurveySystem.Domain.Entities.TaskStatus">
+    <Position X="0.75" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAQABAAgAAAAAAAAAAAgA=</HashCode>
+      <FileName>Entities\TaskStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WelfareSurveySystem.WebUI.Models.RequestTaskViewModel>
+
+@{
+    ViewData["Title"] = "MyRequests";
+}
+
+<h1>My Requests</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FormName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskRequestID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromServiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResearcherStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TopManagerStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskRequestID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromServiceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceNo)
+            </td>
+            <td>
+                @if (item.ResearcherStatus == "Submitted")
+                {
+                    <div class="bg-success">@item.ResearcherStatus</div>
+                }
+                else
+                {
+                    <div>@item.ResearcherStatus</div>
+                }
+                @*@Html.DisplayFor(modelItem => item.ResearcherStatus)*@
+            </td>
+            <td>
+                @if (item.ManagerStatus == "Rejected")
+                {
+                    <div class="bg-danger">@item.ManagerStatus</div>
+                }
+                else
+                {
+                    <div>@item.ManagerStatus</div>
+                }
+                @*@Html.DisplayFor(modelItem => item.ManagerStatus)*@
+            </td>
+            <td>
+                @if (item.TopManagerStatus == "Rejected")
+                {
+                    <div class="bg-danger">@item.TopManagerStatus</div>
+                }
+                else
+                {
+                    <div>@item.TopManagerStatus</div>
+                }
+                @*@Html.DisplayFor(modelItem => item.TopManagerStatus)*@
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WelfareSurveySystem.WebUI.Models.RequestTaskViewModel>
+
+@{
+    ViewData["Title"] = "MyTasks";
+}
+
+<h1>Tasks assigned to Branch @ViewBag.Branch</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FormName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskRequestID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromServiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceNo)
+            </th>
+            <th>
+                Researcher Status
+            </th>
+            <th>
+                Manager Status
+            </th>
+            <th>
+                Manager Comments
+            </th>
+            <th>
+                Top Manager Status
+            </th>
+            <th>
+                Top Manager Comments
+            </th>
+            <th>Attachments</th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaskRequestID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromServiceNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceNo)
+                </td>
+                <td>
+                    @item.ResearcherStatus
+                </td>
+                <td>
+                    @item.ManagerStatus
+                </td>
+                <td>
+                    @item.ManagerComment
+                </td>
+                <td>
+                    @item.TopManagerStatus
+                </td>
+                <td>
+                    @item.TopManagerComment
+                </td>
+                <td>
+                    @foreach (var attachment in item.Attachments)
+                    {
+                        <a href="@attachment.DocumentPath" download>@attachment.DocumentName</a> <text>|</text>
+                    }
+                </td>
+                <td> <a class="btn btn-primary" asp-action="Details" asp-controller="RequestTask" asp-route-serviceNo="@item.ServiceNo" asp-route-taskreqid="@item.TaskRequestID">View Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script>
+        function fetchImageAndDownload(e) {
+            e.preventDefault(); // Prevent browser's default download stuff...
+
+            const url = this.getAttribute("href");       // Anchor href 
+            const downloadName = this.download;          // Anchor download name
+
+            const img = document.createElement("img");   // Create in-memory image
+            img.addEventListener("load", () => {
+                const a = document.createElement("a");   // Create in-memory anchor
+                a.href = img.src;                        // href toward your server-image
+                a.download = downloadName;               // :)
+                a.click();                               // Trigger click (download)
+            });
+            img.src = 'fetchImage?url=' + url;       // Request image from your server
+
+        }
+    </script>
+}

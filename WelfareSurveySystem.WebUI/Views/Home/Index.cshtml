@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mb-5">
+    <h3>Welcome to</h3>
+    <h1 class="display-4">Welfare Survey System</h1>
+
+    
+
+    @*<div class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2"  role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+        <div>*@
+            @TempData["Msg"]
+        @*</div>
+    </div>*@
+
+</div>
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Employee Management</h5>
+                <p class="card-text">Add, Edit, Delete, View Employees with details</p>
+                <a asp-controller="EmployeesPersonalDetails" asp-action="Index" class="btn btn-primary">Manage Employees</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Application User Management</h5>
+                <p class="card-text">Add and Manage users for your application</p>
+                <a class="btn btn-primary" asp-action="Index" asp-controller="Users">Manage Users</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Roles Management</h5>
+                <p class="card-text">Manage Roles for your application</p>
+                <a class="btn btn-primary" asp-action="Index" asp-controller="Roles">Manage Roles</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">My Tasks</h5>
+                <p class="card-text">Manage your tasks</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="RequestTask" asp-action="MyTasks">My Tasks</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">My Requests</h5>
+                <p class="card-text">Manage your requests</p>
+                <a class="btn btn-primary" asp-area="" asp-controller="RequestTask" asp-action="MyRequests">My Requests</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Other</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>

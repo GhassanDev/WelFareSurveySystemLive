@@ -1,0 +1,115 @@
+﻿@model WelfareSurveySystem.Domain.Entities.Employee
+
+@{
+    ViewData["Title"] = "Create Peronal Details";
+}
+
+<h3>Create Employees Peronal Details</h3>
+
+
+<hr />
+<form asp-action="CreatePersonalDetails">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCard" class="control-label"></label>
+                <input asp-for="IdCard" class="form-control" />
+                <span asp-validation-for="IdCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceNo" class="control-label"></label>
+                <input asp-for="ServiceNo" class="form-control" />
+                <span asp-validation-for="ServiceNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForceName" class="control-label"></label>
+                <input asp-for="ForceName" class="form-control" />
+                <span asp-validation-for="ForceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShekhName" class="control-label"></label>
+                <input asp-for="ShekhName" class="form-control" />
+                <span asp-validation-for="ShekhName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourtName" class="control-label"></label>
+                <input asp-for="CourtName" class="form-control" />
+                <span asp-validation-for="CourtName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="EmailID" class="control-label"></label>
+                <input asp-for="EmailID" class="form-control" />
+                <span asp-validation-for="EmailID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label asp-for="Retired" class="form-check-label"></label>
+                    <input type="checkbox" class="form-check-input" asp-for="Retired" />
+               
+            </div>
+            <div class="form-group form-check">
+                <label asp-for="IsDeceased" class="form-check-label"></label>
+                    <input type="checkbox" class="form-check-input" asp-for="IsDeceased" />
+                
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Branch" class="control-label">Branch (for application users only)</label>
+                <input asp-for="Branch" class="form-control" />
+                <span asp-validation-for="Branch" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Address.Region" class="control-label"></label>
+                <input asp-for="Address.Region" class="form-control" />
+                <span asp-validation-for="Address.Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.City" class="control-label"></label>
+                <input asp-for="Address.City" class="form-control" />
+                <span asp-validation-for="Address.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.Village" class="control-label"></label>
+                <input asp-for="Address.Village" class="form-control" />
+                <span asp-validation-for="Address.Village" class="text-danger"></span>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-4" />
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-warning mt-4">Back to Manage Employees</a>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+   
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

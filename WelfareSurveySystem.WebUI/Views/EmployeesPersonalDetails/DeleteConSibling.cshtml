@@ -1,0 +1,12 @@
+﻿@model WelfareSurveySystem.Domain.Entities.Sibling
+
+
+<h1>Confirm Delete</h1>
+<hr>
+
+<h3>Wish to delete @Model.Name ?</h3>
+
+<a asp-action="ConfirmDelete" asp-controller="EmployeesPersonalDetails" asp-route-id="@Model.PersonId" class="btn btn-danger">Yes</a>
+<a asp-action="Index" asp-controller="EmployeesPersonalDetails" class="btn btn-info">No</a>
+
+@*<i class="bi bi-trash3"></i>*@

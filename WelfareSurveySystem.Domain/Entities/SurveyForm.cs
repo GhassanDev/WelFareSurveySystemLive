@@ -1,0 +1,3 @@
+﻿namespace WelfareSurveySystem.Domain.Entities
+{
+}

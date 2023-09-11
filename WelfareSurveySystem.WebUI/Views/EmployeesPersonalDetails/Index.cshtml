@@ -1,0 +1,100 @@
+﻿@model WelfareSurveySystem.Domain.Entities.Employee
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="input-group">
+                <h1>Manage Employees</h1>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    <a asp-action="CreatePersonalDetails" class="btn btn-primary">Create New Employee</a>
+    <a asp-action="List" class="btn btn-info float-end">View All Employees</a>
+</p>
+<hr />
+<form asp-action="Index" asp-controller="EmployeesPersonalDetails" method="post">
+    <div class="container mt-2">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text">Search Service Number</span>
+                    <input type="text" name="serviceNo" class="form-control" placeholder="Enter Service Number">
+                    <input type="submit" class="btn btn-primary" value="Search" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<br />
+
+
+
+@if (Model != null)
+
+{
+    //TODO: Display the below details properly
+
+    <div class="container  align-content-center bg-info">
+        <div class="row">
+            <div class="col-sm-6">
+                <div>Name :@Model.FullName</div>
+                
+            </div>
+
+            <div class="col-sm-6">
+               
+                <div>Service Number: @Model.ServiceNo </div>
+            </div>
+        </div>
+       
+  </div>
+
+
+
+
+    //TODO: Add graphic images for buttons
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Add Details to @Model.FullName</h5>
+                <div class="row">
+                    <div class="col">
+                        <a asp-action="AddParents" asp-route-empID="@Model.EmployeeID" class="btn btn-primary">Parents</a>
+                    </div>
+                    <div class="col">
+                        @*  <button class="btn btn-secondary">Children</button>*@
+                        <a asp-action="AddChildren" asp-route-empID="@Model.EmployeeID" class="btn btn-primary">Children</a>
+                    </div>
+                    <div class="col">
+                        <a asp-action="AddSpouse" asp-route-empID="@Model.EmployeeID" class="btn btn-primary">Spouse</a>
+                    </div>
+                    <div class="col">
+                        <a asp-action="AddSibling" asp-route-empID="@Model.EmployeeID" class="btn btn-primary">Sibling</a>
+                    </div>
+
+                    <div class="col">
+                        <a asp-action="AddRealEstate" asp-route-empID="@Model.EmployeeID" class="btn btn-primary">Real Estate</a>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    @*<h3 class="text-center text-danger">Employee not found</h3>*@
+
+<h3 class="text-center text-danger">@TempData["Msg"]</h3>
+    <h3 class="alert alert-success text-center">@TempData["SuccessMsg"]</h3>
+
+}

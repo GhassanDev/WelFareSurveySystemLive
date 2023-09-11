@@ -1,0 +1,89 @@
+﻿@model WelfareSurveySystem.Domain.Entities.Parent
+@using WelfareSurveySystem.Domain.Entities
+@{
+    ViewData["Title"] = "Create Parent Details";
+}
+
+<h3>@TempData["Msg"]</h3>
+
+<h1>Create Parent Details</h1>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            Full Name
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Employee.FullName
+        </dd>
+
+        <dt class="col-sm-2">
+            Service No
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Employee.ServiceNo
+        </dd>
+
+    </dl>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="View">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <input asp-for="PersonId" class="form-control" />
+                <span asp-validation-for="PersonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCard" class="control-label"></label>
+                <input asp-for="IdCard" class="form-control" />
+                <span asp-validation-for="IdCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDay" class="control-label"></label>
+                <input asp-for="BirthDay" class="form-control" />
+                <span asp-validation-for="BirthDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthStatues" class="control-label"></label>
+                <input asp-for="HealthStatues" class="form-control" />
+                <span asp-validation-for="HealthStatues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobName" class="control-label"></label>
+                <input asp-for="JobName" class="form-control" />
+                <span asp-validation-for="JobName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <input asp-for="MaritalStatus" class="form-control" />
+                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

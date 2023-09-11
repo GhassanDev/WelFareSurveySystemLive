@@ -1,0 +1,404 @@
+﻿@model WelfareSurveySystem.Domain.Entities.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    @*  *@
+<h4>Employee</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.EmployeeID)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.EmployeeID)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.FullName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.FullName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.IdCard)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.IdCard)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ServiceNo)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ServiceNo)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ForceName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ForceName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.SysDate)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.SysDate)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Retired)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Retired)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Branch)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Branch)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ShekhName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ShekhName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.CourtName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.CourtName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.EmailID)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.EmailID)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.IsDeceased)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.IsDeceased)
+    </dd>
+</dl>
+</div>
+
+
+
+
+<h3>Parents</h3>
+<form method="post" action="SubmitMyTasks">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Name")
+                </th>
+                <th>
+                    @Html.DisplayName("ID Card")
+                </th>
+                <th>
+                    @Html.DisplayName("Date of Birth"))
+                </th>
+                <th>
+                    @Html.DisplayName("Health Status")
+                </th>
+                <th>
+                    @Html.DisplayName("Job")
+                </th>
+                <th>
+                    @Html.DisplayName("Marital Status")
+                </th>
+                <th>
+                    @Html.DisplayName("City")
+                </th>
+                <th>
+                    Share Pension
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Parents)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCard)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BirthDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HealthStatues)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaritalStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address.City)
+                    </td>
+                    <td>
+
+                        <input type="checkbox" name="personIdList" value="@item.PersonId" checked="@item.IsEligibleToSharePensionAmount" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Childrens</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Name")
+                </th>
+                <th>
+                    @Html.DisplayName("ID Card")
+                </th>
+                <th>
+                    @Html.DisplayName("Date of Birth"))
+                </th>
+                <th>
+                    @Html.DisplayName("Health Status")
+                </th>
+                <th>
+                    @Html.DisplayName("Job")
+                </th>
+                <th>
+                    @Html.DisplayName("Marital Status")
+                </th>
+                <th>
+                    @Html.DisplayName("City")
+                </th>
+                <th>
+                    Share Pension
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Childrens)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCard)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BirthDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HealthStatues)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaritalStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address.City)
+                    </td>
+                    <td>
+
+                        <input type="checkbox" name="personIdList" value="@item.PersonId" checked="@item.IsEligibleToSharePensionAmount" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Spouses</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Name")
+                </th>
+                <th>
+                    @Html.DisplayName("ID Card")
+                </th>
+                <th>
+                    @Html.DisplayName("Date of Birth"))
+                </th>
+                <th>
+                    @Html.DisplayName("Health Status")
+                </th>
+                <th>
+                    @Html.DisplayName("Job")
+                </th>
+                <th>
+                    @Html.DisplayName("Marital Status")
+                </th>
+                <th>
+                    @Html.DisplayName("City")
+                </th>
+                <th>
+                    Share Pension
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Spouses)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCard)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BirthDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HealthStatues)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaritalStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address.City)
+                    </td>
+                    <td>
+
+                        <input type="checkbox" name="personIdList" value="@item.PersonId" checked="@item.IsEligibleToSharePensionAmount" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>RealEstates</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Name")
+                </th>
+                <th>
+                    @Html.DisplayName("ID Card")
+                </th>
+                <th>
+                    @Html.DisplayName("Date of Birth"))
+                </th>
+                <th>
+                    @Html.DisplayName("Health Status")
+                </th>
+                <th>
+                    @Html.DisplayName("Job")
+                </th>
+                <th>
+                    @Html.DisplayName("Marital Status")
+                </th>
+                <th>
+                    @Html.DisplayName("City")
+                </th>
+                <th>
+                    Share Pension
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.RealEstates)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealEstateType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OwnOrRent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealEstateNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealEstateDescription)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+    <div>
+        <input type="hidden" name="taskreqid" value="@ViewBag.TaskReqID" />
+        @if (User.IsInRole("researcher"))
+        {
+            <input type="submit" action="SubmitMyTasks" name="btnSubmit" value="Submit" class="btn btn-primary" />
+        }
+        
+    </div>
+</form>
+
+@if (User.IsInRole("manager"))
+{
+    <form asp-action="ManagerAction" method="post">
+        <input type="hidden" name="taskreqid" value="@ViewBag.TaskReqID" />
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Approved</label>
+                <input type="radio" name="manageraction" value="Approved" />
+            </div>
+            <div class="col">
+                <label class="form-label">Rejected</label>
+                <input type="radio" name="manageraction" value="Rejected" />
+            </div>
+            <div class="col">
+                <label class="form-label">Returned</label>
+                <input type="radio" name="manageraction" value="Returned" />
+            </div>
+        </div>
+        <label class="form-label">Manager Comments</label>
+        <textarea class="form-control mb-4" name="managercomment"></textarea>
+
+        <input type="submit" name="btnSubmit" value="Submit" class="btn btn-success" />
+
+        @*<a asp-action="ManagerAction" asp-controller="RequestTask" asp-route-actionData="Approve" class="btn btn-success">Approve</a>
+        <a asp-action="ManagerAction" asp-controller="RequestTask" asp-route-actionData="Reject" class="btn btn-danger">Reject</a>
+        <a asp-action="ManagerAction" asp-controller="RequestTask" asp-route-actionData="Return" class="btn btn-warning">Return</a>*@
+    </form>
+    @*<input type="submit" action="ManagerReject" name="name1" value="Reject" />
+        <input type="submit" action="ManagerApproved" name="name2" value="Approve" />
+        <input type = "submit" action = "ManagerReturned" name = "name3" value = "Return" />*@
+}
+
+@{ 
+    var attachments = ViewBag.Attachments as List<WelfareSurveySystem.Domain.Entities.Document>;
+}
+
+<h3>Attachments @attachments.Count</h3>
+
+@foreach (var attachment in attachments)
+{
+<div class="row bg-body-secondary">
+    <div class="col">
+        <a href="~/uploads/@attachment.DocumentPath" target="_blank">@attachment.DocumentName</a>
+    </div>
+</div>
+}
+
+
+
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-warning">Back to Home</a>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Welfare Survey System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-darkly.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WelfareSurveySystem.WebUI.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-expand-sm navbar-toggleable-sm bg-primary mb-3 border-bottom box-shadow" data-bs-theme="dark">
+            @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">*@
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Welfare Survey System</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </li>
+                              data-bs-theme="light"
+                        *@
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="EmployeesPersonalDetails" asp-action="Index">Manage Employee</a>
+                        </li>
+
+                        @*@if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+        {*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="admin">Admin</a>
+                            <div class="dropdown-menu" aria-labelledby="admin">
+                                <a class="dropdown-item" rel="noopener" asp-action="Index" asp-controller="Roles">Manage Roles</a>
+                                <a class="dropdown-item" rel="noopener" asp-action="Index" asp-controller="Users">Manage Users</a>
+                            </div>
+                        </li>
+                        @*}*@
+                        <li class="nav-item dropdown" data-bs-theme="light">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="download">Survey Forms</a>
+                            <div class="dropdown-menu" aria-labelledby="download">
+                                <a class="dropdown-item" rel="noopener" asp-action="Create" asp-controller="DeceasedForm">Deceased Form</a>
+                                <a class="dropdown-item" rel="noopener" href="#">X Form</a>
+                                <a class="dropdown-item" rel="noopener" href="#">Y Form</a>
+
+                            </div>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="RequestTask" asp-action="MyTasks">My Tasks</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="RequestTask" asp-action="MyRequests">My Requests</a>
+                        </li>
+                        @*<li class="nav-item">
+            <a class="nav-link text-white" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+        </li>*@
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+            </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted bg-light">
+        <div class="container text-dark">
+            &copy; 2023 - Welfare Survey System - <a class="text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

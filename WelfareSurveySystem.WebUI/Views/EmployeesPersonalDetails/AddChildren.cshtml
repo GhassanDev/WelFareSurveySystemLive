@@ -1,0 +1,156 @@
+﻿@model IEnumerable<WelfareSurveySystem.Domain.Entities.Children>
+
+@{
+    ViewData["Title"] = "AddChildren";
+<link href="~/css/site.css" rel="stylesheet" />
+}
+
+
+<h1>Add Childrens</h1>
+
+@if (Model.Count() >= 1)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+            @Html.DisplayNameFor(model => model.ParentId)
+            </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PersonId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdCard)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BirthDay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HealthStatues)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JobName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaritalStatus)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.ParentId)
+            </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PersonId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCard)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BirthDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HealthStatues)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaritalStatus)
+                    </td>
+                    <td>
+                      @*  @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        <a href="@Url.Action("Delete", new { id = item.EmployeeID  })" onclick="return confirm('Are you sure you want to delete this item?');">
+                            <span class="bi bi-trash"></span>
+                        </a>*@
+
+                    <td>
+                        <a asp-action="ConfirmDeleteChildren"
+                   asp-route-id="@item.PersonId"
+                           class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+
+                    </td>
+                    <td>
+                        <a asp-action="EditChildrens" asp-route-id="@item.PersonId" class="btn btn-primary">Edit</a>
+                    </td>
+                        
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@*@if (Model.Count() == null) {*@
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddChildren">
+            <input type="hidden" name="EmployeeID" value="@ViewBag.EmployeeID">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="mb-3">
+            <label asp-for="@item.EmployeeID" class="control-label"></label>
+            <input asp-for="EmployeeID" class="form-control" />
+            <span asp-validation-for="EmployeeID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input name="Name" class="form-control" />
+                @*<span asp-validation-for="Name" class="text-danger"></span>*@
+            </div>
+           @* <div class="form-group">
+                <label class="control-label">ID Card</label>
+                <input name="IdCard" class="form-control" />
+                <span asp-validation-for="IdCard" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label class="control-label">Birth Day</label>
+                <input name="BirthDay" class="form-control" type="datetime-local" />
+                @*<span asp-validation-for="BirthDay" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label">Health Statues</label>
+                <input name="HealthStatues" class="form-control" />
+                @*<span asp-validation-for="HealthStatues" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label">Job Name</label>
+                <input name="JobName" class="form-control" />
+                @*<span asp-validation-for="JobName" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label">Marital Status</label>
+                <input name="MaritalStatus" class="form-control" />
+                @*<span asp-validation-for="MaritalStatus" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+

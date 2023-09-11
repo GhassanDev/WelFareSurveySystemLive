@@ -1,0 +1,113 @@
+﻿@model WelfareSurveySystem.WebUI.Models.TaskRequestViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Task Request for Deceased</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+            <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="FromServiceNo" class="control-label"></label>*@
+                <input asp-for="FromServiceNo" class="form-control" hidden />
+                @*<span asp-validation-for="FromServiceNo" class="text-danger"></span>*@
+            </div>
+            @*<div class="form-group">
+                <label asp-for="ServiceNo" class="control-label"></label>
+                <input asp-for="ServiceNo" class="form-control" />
+                <button>Verify</button>
+                <span asp-validation-for="ServiceNo" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="ServiceNo" class="control-label"></label>
+                <input asp-for="ServiceNo" id="ServiceNo" class="form-control" />
+                <button type="button" id="getEmployeeButton" class="btn btn-primary">Verify</button>
+                <span asp-validation-for="ServiceNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input id="FullName" asp-for="FullName" class="form-control text-white" readonly />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Branch" class="control-label"></label>
+                @*<input asp-for="Branch" class="form-control" />*@
+            <select asp-for="Branch" class="form-control">
+                <option value="">Select Branch</option>
+                <option value="IBRI">Ibri</option>
+                <option value="MUSCAT">Muscat</option>
+                <option value="SOHAR">Sohar</option>
+                <option value="SALALAH">Salalah</option>
+            </select>
+                <span asp-validation-for="Branch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfDeceased" class="control-label"></label>
+                <input asp-for="DateOfDeceased" class="form-control" />
+                <span asp-validation-for="DateOfDeceased" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReasonOfDeceased" class="control-label"></label>
+                <textarea asp-for="ReasonOfDeceased" class="form-control"></textarea>
+                <span asp-validation-for="ReasonOfDeceased" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Uploads" class="control-label">Upload Documents (Hold Ctrl key to select multiple files)</label>
+                <input asp-for="Uploads" type="file" multiple class="form-control">
+                <span asp-validation-for="Uploads" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Send" class="btn btn-primary mt-4" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+
+
+
+    }
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#getEmployeeButton").click(function () {
+            var serviceNo = $("#ServiceNo").val();
+            //alert(serviceNo);
+            // Make an AJAX request to the MVC action
+            $.ajax({
+                url: "/DeceasedForm/VerifyServiceNumber",
+                data: { serviceNo: serviceNo },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    // Display employee details in the employeeDetails div
+
+                    //alert(data);
+                    $("#FullName").val(data);// .html("Employee Name: " + data.Name );
+                    $("#FullName").css("background-color", "green");
+                },
+                error: function () {
+                    //alert("failed");
+                    $("#FullName").val("Employee not found.");
+                    $("#FullName").css("background-color", "red");
+                }
+            });
+        });
+    });
+</script>
